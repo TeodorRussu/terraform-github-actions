@@ -21,10 +21,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+      # terraform fmt
       - name: Setup Terraform
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.3.0
           tf_actions_working_dir: './terraform'
           tf_actions_subcommand: 'fmt'
+
+      # terraform init
+      - name: Setup Terraform
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.3.0
+          tf_actions_working_dir: './terraform'
+          tf_actions_subcommand: 'init'
